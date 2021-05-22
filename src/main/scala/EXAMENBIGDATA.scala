@@ -9,7 +9,7 @@ object ExamenBigData {
     return new_list
   }
 
-  def avoirdomaine(lien:String) : String ={  //obtention des domaines
+  def domaine(lien:String) : String ={  
     return lien.replace("https://www.","").split("/")(0)
   }
 
@@ -26,13 +26,13 @@ object ExamenBigData {
       ("https://www.jesuisundev.com/article-invite/","invite"),
       ("https://www.numerama.com/"," ")
     )
-    // je cree d'abord une liste avec les domaines et ensuite je fais une fusion
-    val finalListe =  (ListMap(Maliste:_*).keys.toList.map(l => avoirdomaine(l) ) zip ListMap(Maliste:_*).values).toList // funsionner les 2 dans une liste de tuple
-    println(finalListe)
+    
+    val  l_fina =  (ListMap(Maliste:_*).keys.toList.map(l => domaine(l) ) zip ListMap(Maliste:_*).values).toList 
+    println( l_fina)
   }
 
 
-  //l'affichade dans le main
+  
   def main(args: Array[String]): Unit = {
     //affichage des valeurs
     println(Listevaleur(List("Julien","Paul","Jean","rac","trec","joel","ed","chris")))
